@@ -2,8 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.model.AccountModel;
 import com.example.demo.repository.AccountRepository;
-import com.example.demo.responses.AccountResponse;
-import lombok.Builder;
+import com.example.demo.requests.AccountRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,13 +18,15 @@ public class AccountService {
         this.accountRepository = accountRepository;
     }
 
-    public ResponseEntity<AccountResponse> createAccount(AccountResponse accountResponse) {
-        AccountModel accountModel = new AccountModel(accountResponse.getId(),
-                accountResponse.getFName(),
-                accountResponse.getSName(),
-                accountResponse.getBalance());
-        accountRepository.save(accountModel);
-        return new ResponseEntity<>(accountResponse, HttpStatus.OK);
+    public Long createAccount(AccountRequest accountRequest) {
+        AccountModel accountModel = AccountModel.builder()
+                .id(accountRequest.getId())
+                .fName(accountRequest.getFName())
+                .sName(accountRequest.getSName())
+                .balance(accountRequest.getBalance())
+                .build();
+
+        return accountRepository.save(accountModel).getId();
     }
 }
 

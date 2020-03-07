@@ -1,14 +1,16 @@
 package com.example.demo.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "account")
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class AccountModel {
