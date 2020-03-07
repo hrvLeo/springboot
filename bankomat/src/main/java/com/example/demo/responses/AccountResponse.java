@@ -7,15 +7,7 @@ import lombok.Data;
 @Data
 @Builder
 public class AccountResponse {
-    @JsonProperty("id")
-    private Long id;
 
-    @JsonProperty("fName")
-    private String fName;
-
-    @JsonProperty("sName")
-    private String sName;
-
-    @JsonProperty("balance")
-    private double balance;
+  @JsonProperty("message")
+  private String message;
 }
