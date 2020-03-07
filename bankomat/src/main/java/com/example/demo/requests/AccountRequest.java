@@ -7,8 +7,6 @@ import lombok.Data;
 @Data
 @Builder
 public class AccountRequest {
-    @JsonProperty("id")
-    private Long id;
 
     @JsonProperty("fName")
     private String fName;

@@ -20,7 +20,6 @@ public class AccountService {
 
     public Long createAccount(AccountRequest accountRequest) {
         AccountModel accountModel = AccountModel.builder()
-                .id(accountRequest.getId())
                 .fName(accountRequest.getFName())
                 .sName(accountRequest.getSName())
                 .balance(accountRequest.getBalance())
